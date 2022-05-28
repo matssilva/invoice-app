@@ -1,4 +1,5 @@
 ﻿using InvoiceAppWebApi.Business;
+using InvoiceAppWebApi.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InvoiceAppWebApi.Controllers
@@ -12,10 +13,18 @@ namespace InvoiceAppWebApi.Controllers
         {
             _invoiceBusiness = invoiceBusiness;
         }
-        [HttpGet(Name = "Get")]
+
+        [HttpGet]
         public async Task<IActionResult> Get()
         {
             return Ok(await _invoiceBusiness.GetAllAsync());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(InvoiceModel invoiceModel)
+        {
+            await _invoiceBusiness.AddAsync(invoiceModel);
+            return Ok();
         }
     }
 }

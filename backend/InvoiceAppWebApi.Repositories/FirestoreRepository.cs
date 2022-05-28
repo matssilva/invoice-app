@@ -12,7 +12,14 @@ namespace InvoiceAppWebApi.Repositories
         {
             _database = database;
         }
-        public async Task<IEnumerable<Invoice>> GetAll()
+
+        public async Task AddAsync(Invoice invoice)
+        {
+            CollectionReference invoicesCollection = _database.Collection("invoices");
+            await invoicesCollection.AddAsync(invoice);
+        }
+
+        public async Task<IEnumerable<Invoice>> GetAllAsync()
         {
             List<Invoice> list = new();
             CollectionReference invoicesCollection = _database.Collection("invoices");

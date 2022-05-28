@@ -9,6 +9,7 @@ namespace InvoiceAppWebApi.CrossCutting
             return new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile(new EntitiesToModelMappingProfile());
+                cfg.AddProfile(new ModelToEntitiesMappingProfile());
             });
         }
     }

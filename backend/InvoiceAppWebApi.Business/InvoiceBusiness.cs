@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using InvoiceAppWebApi.Entities;
 using InvoiceAppWebApi.Models;
 using InvoiceAppWebApi.Repositories;
 
@@ -14,9 +15,15 @@ namespace InvoiceAppWebApi.Business
             _firestoreRepository = firestoreRepository;
             _mapper = mapper;
         }
+
+        public async Task AddAsync(InvoiceModel invoiceModel)
+        {
+            await _firestoreRepository.AddAsync(_mapper.Map<Invoice>(invoiceModel));
+        }
+
         public async Task<IEnumerable<InvoiceModel>> GetAllAsync()
         {
-            var invoices = await _firestoreRepository.GetAll();
+            var invoices = await _firestoreRepository.GetAllAsync();
             return _mapper.Map<IEnumerable<InvoiceModel>>(invoices);
         }
     }

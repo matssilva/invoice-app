@@ -4,6 +4,7 @@ namespace InvoiceAppWebApi.Repositories
 {
     public interface IFirestoreRepository
     {
-        Task<IEnumerable<Invoice>> GetAll();
+        Task<IEnumerable<Invoice>> GetAllAsync();
+        Task AddAsync(Invoice invoice);
     }
 }
