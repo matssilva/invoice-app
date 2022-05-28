@@ -19,6 +19,12 @@ namespace InvoiceAppWebApi.Repositories
             await invoicesCollection.AddAsync(invoice);
         }
 
+        public async Task DeleteAsync(string id)
+        {
+            DocumentReference invoiceRef = _database.Collection("invoices").Document(id);
+            await invoiceRef.DeleteAsync();
+        }
+
         public async Task<IEnumerable<Invoice>> GetAllAsync()
         {
             List<Invoice> list = new();
@@ -29,6 +35,7 @@ namespace InvoiceAppWebApi.Repositories
                 Dictionary<string, object> document = documentSnapshot.ToDictionary();
                 string json = JsonConvert.SerializeObject(document);
                 Invoice invoice = JsonConvert.DeserializeObject<Invoice>(json);
+                invoice.DocumentId = documentSnapshot.Id;
                 list.Add(invoice);
             }
             return list;

@@ -7,6 +7,10 @@ namespace InvoiceAppWebApi.Entities
     public class Invoice
     {
         [FirestoreProperty]
+        [FirestoreDocumentId]
+        public string DocumentId { get; set; }
+
+        [FirestoreProperty]
         [JsonProperty("id")]
         public string Id { get; set; }
         [FirestoreProperty]

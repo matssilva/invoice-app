@@ -21,6 +21,11 @@ namespace InvoiceAppWebApi.Business
             await _firestoreRepository.AddAsync(_mapper.Map<Invoice>(invoiceModel));
         }
 
+        public async Task DeleteAsync(string id)
+        {
+            await _firestoreRepository.DeleteAsync(id);
+        }
+
         public async Task<IEnumerable<InvoiceModel>> GetAllAsync()
         {
             var invoices = await _firestoreRepository.GetAllAsync();

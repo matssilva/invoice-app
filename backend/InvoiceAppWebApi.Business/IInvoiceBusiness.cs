@@ -6,5 +6,6 @@ namespace InvoiceAppWebApi.Business
     {
         Task<IEnumerable<InvoiceModel>> GetAllAsync();
         Task AddAsync(InvoiceModel invoiceModel);
+        Task DeleteAsync(string id);
     }
 }

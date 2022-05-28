@@ -4,6 +4,8 @@ namespace InvoiceAppWebApi.Models
 {
     public class InvoiceModel
     {
+        [JsonProperty("documentId")]
+        public string DocumentId { get; set; }
         [JsonProperty("id")]
         public string Id { get; set; }
 

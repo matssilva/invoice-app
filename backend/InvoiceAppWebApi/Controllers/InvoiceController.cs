@@ -26,5 +26,12 @@ namespace InvoiceAppWebApi.Controllers
             await _invoiceBusiness.AddAsync(invoiceModel);
             return Ok();
         }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(string id)
+        {
+            await _invoiceBusiness.DeleteAsync(id);
+            return Ok();
+        }
     }
 }
