@@ -1,7 +1,9 @@
-﻿namespace InvoiceAppWebApi.Business
+﻿using InvoiceAppWebApi.Models;
+
+namespace InvoiceAppWebApi.Business
 {
     public interface IInvoiceBusiness
     {
-        Task<IEnumerable<object>> GetAllAsync();
+        Task<IEnumerable<InvoiceModel>> GetAllAsync();
     }
 }

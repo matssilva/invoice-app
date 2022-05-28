@@ -1,4 +1,6 @@
+using Google.Cloud.Firestore;
 using InvoiceAppWebApi.Business;
+using InvoiceAppWebApi.CrossCutting;
 using InvoiceAppWebApi.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IFirestoreRepository, FirestoreRepository>();
 builder.Services.AddScoped<IInvoiceBusiness, InvoiceBusiness>();
+builder.Services.AddSingleton<FirestoreDb>(_ =>
+{
+    return FirestoreDb.Create("invoices-app-a14e3");
+});
+builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
 
 var app = builder.Build();
 

@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\InvoiceAppWebApi.Entities\InvoiceAppWebApi.Entities.csproj" />
     <ProjectReference Include="..\InvoiceAppWebApi.Models\InvoiceAppWebApi.Models.csproj" />
-    <ProjectReference Include="..\InvoiceAppWebApi.Repositories\InvoiceAppWebApi.Repositories.csproj" />
   </ItemGroup>
 
 </Project>

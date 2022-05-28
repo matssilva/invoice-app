@@ -15,8 +15,7 @@ namespace InvoiceAppWebApi.Controllers
         [HttpGet(Name = "Get")]
         public async Task<IActionResult> Get()
         {
-            var list = await _invoiceBusiness.GetAllAsync();
-            return Ok(list);
+            return Ok(await _invoiceBusiness.GetAllAsync());
         }
     }
 }

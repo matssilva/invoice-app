@@ -1,16 +1,30 @@
-﻿namespace InvoiceAppWebApi.Repositories
+﻿using Google.Cloud.Firestore;
+using InvoiceAppWebApi.Entities;
+using Newtonsoft.Json;
+
+namespace InvoiceAppWebApi.Repositories
 {
     public class FirestoreRepository : IFirestoreRepository
     {
-        public async Task<IEnumerable<object>> GetAll()
-        {
-            var task = Task.Run(() =>
-            {
-                var list = new[] { new { Name = "Teste" }, new { Name = "Teste2" } }.ToList();
-                return list;
-            });
+        private readonly FirestoreDb _database;
 
-            return await task;
+        public FirestoreRepository(FirestoreDb database)
+        {
+            _database = database;
+        }
+        public async Task<IEnumerable<Invoice>> GetAll()
+        {
+            List<Invoice> list = new();
+            CollectionReference invoicesCollection = _database.Collection("invoices");
+            QuerySnapshot snapshot = await invoicesCollection.GetSnapshotAsync();
+            foreach (DocumentSnapshot documentSnapshot in snapshot.Documents)
+            {
+                Dictionary<string, object> document = documentSnapshot.ToDictionary();
+                string json = JsonConvert.SerializeObject(document);
+                Invoice invoice = JsonConvert.DeserializeObject<Invoice>(json);
+                list.Add(invoice);
+            }
+            return list;
         }
     }
 }

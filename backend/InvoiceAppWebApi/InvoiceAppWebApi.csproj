@@ -7,11 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Google.Cloud.Firestore" Version="2.5.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\InvoiceAppWebApi.Business\InvoiceAppWebApi.Business.csproj" />
+    <ProjectReference Include="..\InvoiceAppWebApi.CrossCutting\InvoiceAppWebApi.CrossCutting.csproj" />
     <ProjectReference Include="..\InvoiceAppWebApi.Repositories\InvoiceAppWebApi.Repositories.csproj" />
   </ItemGroup>
 
