@@ -23,14 +23,21 @@ namespace InvoiceAppWebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(InvoiceModel invoiceModel)
         {
-            await _invoiceBusiness.AddAsync(invoiceModel);
-            return Ok();
+            string createdId = await _invoiceBusiness.AddAsync(invoiceModel);
+            return Ok(createdId);
         }
 
         [HttpDelete]
         public async Task<IActionResult> Delete(string id)
         {
             await _invoiceBusiness.DeleteAsync(id);
+            return Ok();
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update(InvoiceModel invoiceModel)
+        {
+            await _invoiceBusiness.UpdateAsync(invoiceModel);
             return Ok();
         }
     }

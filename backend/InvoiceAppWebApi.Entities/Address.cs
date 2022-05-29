@@ -6,16 +6,16 @@ namespace InvoiceAppWebApi.Entities
     [FirestoreData]
     public class Address
     {
-        [FirestoreProperty]
+        [FirestoreProperty("street")]
         [JsonProperty("street")]
         public string Street { get; set; }
-        [FirestoreProperty]
+        [FirestoreProperty("city")]
         [JsonProperty("city")]
         public string City { get; set; }
-        [FirestoreProperty]
+        [FirestoreProperty("postCode")]
         [JsonProperty("postCode")]
         public string PostCode { get; set; }
-        [FirestoreProperty]
+        [FirestoreProperty("country")]
         [JsonProperty("country")]
         public string Country { get; set; }
     }

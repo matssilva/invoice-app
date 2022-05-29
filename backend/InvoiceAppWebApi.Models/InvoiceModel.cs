@@ -4,10 +4,8 @@ namespace InvoiceAppWebApi.Models
 {
     public class InvoiceModel
     {
-        [JsonProperty("documentId")]
-        public string DocumentId { get; set; }
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
         [JsonProperty("createdAt")]
         public string CreatedAt { get; set; }

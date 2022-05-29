@@ -6,16 +6,16 @@ namespace InvoiceAppWebApi.Entities
     [FirestoreData]
     public class Item
     {
-        [FirestoreProperty]
+        [FirestoreProperty("name")]
         [JsonProperty("name")]
         public string Name { get; set; }
-        [FirestoreProperty]
+        [FirestoreProperty("quantity")]
         [JsonProperty("quantity")]
         public int Quantity { get; set; }
-        [FirestoreProperty]
+        [FirestoreProperty("price")]
         [JsonProperty("price")]
         public double Price { get; set; }
-        [FirestoreProperty]
+        [FirestoreProperty("total")]
         [JsonProperty("total")]
         public double Total { get; set; }
     }

@@ -6,44 +6,40 @@ namespace InvoiceAppWebApi.Entities
     [FirestoreData]
     public class Invoice
     {
-        [FirestoreProperty]
-        [FirestoreDocumentId]
-        public string DocumentId { get; set; }
-
-        [FirestoreProperty]
+        [FirestoreProperty("id")]
         [JsonProperty("id")]
         public string Id { get; set; }
-        [FirestoreProperty]
+        [FirestoreProperty("createdAt")]
         [JsonProperty("createdAt")]
         public string CreatedAt { get; set; }
-        [FirestoreProperty]
+        [FirestoreProperty("paymentDue")]
         [JsonProperty("paymentDue")]
         public string PaymentDue { get; set; }
-        [FirestoreProperty]
+        [FirestoreProperty("description")]
         [JsonProperty("description")]
         public string Description { get; set; }
-        [FirestoreProperty]
+        [FirestoreProperty("paymentTerms")]
         [JsonProperty("paymentTerms")]
         public int PaymentTerms { get; set; }
-        [FirestoreProperty]
+        [FirestoreProperty("clientName")]
         [JsonProperty("clientName")]
         public string ClientName { get; set; }
-        [FirestoreProperty]
+        [FirestoreProperty("clientEmail")]
         [JsonProperty("clientEmail")]
         public string ClientEmail { get; set; }
-        [FirestoreProperty]
+        [FirestoreProperty("status")]
         [JsonProperty("status")]
         public string Status { get; set; }
-        [FirestoreProperty]
+        [FirestoreProperty("senderAddress")]
         [JsonProperty("senderAddress")]
         public Address SenderAddress { get; set; }
-        [FirestoreProperty]
+        [FirestoreProperty("clientAddress")]
         [JsonProperty("clientAddress")]
         public Address ClientAddress { get; set; }
-        [FirestoreProperty]
+        [FirestoreProperty("items")]
         [JsonProperty("items")]
         public IEnumerable<Item> Items { get; set; }
-        [FirestoreProperty]
+        [FirestoreProperty("total")]
         [JsonProperty("total")]
         public double Total { get; set; }
     }

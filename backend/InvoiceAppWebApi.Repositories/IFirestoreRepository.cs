@@ -5,7 +5,7 @@ namespace InvoiceAppWebApi.Repositories
     public interface IFirestoreRepository
     {
         Task<IEnumerable<Invoice>> GetAllAsync();
-        Task AddAsync(Invoice invoice);
         Task DeleteAsync(string id);
+        Task SaveAsync(Invoice invoice);
     }
 }
