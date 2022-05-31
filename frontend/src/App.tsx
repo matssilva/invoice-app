@@ -1,13 +1,20 @@
-import { useState } from 'react'
+import { useState } from "react";
+import { ThemeProvider } from "styled-components";
+import Sidebar from "./components/Sidebar/Sidebar";
+import { useTheme } from "./hooks/useTheme";
+import { Main } from "./styles/style";
+import { lightTheme, darkTheme } from "./theme/themes";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { theme, themeToggler } = useTheme();
 
   return (
-    <div className="App">
-      Matheus
-    </div>
-  )
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <Main>
+        <Sidebar />
+      </Main>
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;
