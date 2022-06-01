@@ -12,11 +12,11 @@ const lightTheme = {
 const darkTheme = {
   color1: '#141625',
   headerText: '#fff',
-  color3: '#1E2A47',
+  color3: '#DFE3FA',
   color4: '#0079ff',
   color6: '#fff',
   color2: '#1E2139',
-  color5: '#fff',
+  color5: '#9277FF',
   fontFamily: 'Space Mono'
 }
 

@@ -1,3 +1,18 @@
+@font-face {
+  font-family: 'Spartan Medium';
+  src: local('Spartan Medium'), url(./font//Spartan-Medium.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Spartan Bold';
+  src: local('Spartan Bold'), url(./font//Spartan-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Spartan';
+  src: local('Spartan Regular'), url(./font//Spartan-Regular.ttf) format('truetype');
+}
+
 * {
   margin: 0;
   padding: 0;
