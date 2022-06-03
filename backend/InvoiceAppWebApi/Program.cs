@@ -18,6 +18,13 @@ builder.Services.AddSingleton<FirestoreDb>(_ =>
     return FirestoreDb.Create("invoices-app-a14e3");
 });
 builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy", builder => builder
+        .AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader());
+});
 
 var app = builder.Build();
 
@@ -27,6 +34,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
 

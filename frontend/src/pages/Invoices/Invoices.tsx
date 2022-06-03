@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DropdownMultiple, { Option } from "../../components/DropdownMultiple/DropdownMultiple";
 import { Header, TitleContainer, Container } from "./styles";
 import IconPlus from "../../assets/icon-plus.svg?component";
+import api from '../../api';
 
 const options : Array<Option> = [
   { value: 'Draft', text: 'Draft' },
@@ -11,6 +12,13 @@ const options : Array<Option> = [
 
 const Invoices = (): JSX.Element => {
   const [filterStatus, setFilterStatus] = useState<String>('');
+
+  useEffect(() => {
+    (async () => {
+      const response = await api.getInvoicesAsync();
+      console.log(response);
+    })();
+  }, [])
 
   return (
     <Container>
