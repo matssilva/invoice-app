@@ -17,6 +17,8 @@ const darkTheme = {
   color6: '#fff',
   color2: '#1E2139',
   color5: '#9277FF',
+  color7: '#252945',
+  color8: '#7C5DFA',
   fontFamily: 'Space Mono'
 }
 
