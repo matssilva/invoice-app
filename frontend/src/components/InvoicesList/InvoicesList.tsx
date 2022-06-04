@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Invoice } from '../../types';
-import { ClientName, Date, Identifier, Item, List, Total } from './style';
+import { ClientName, Date, Item, List, Total } from './style';
 import IconArrowRight from '../../assets/icon-arrow-right.svg?component';
-import { StatusContainer } from '../../shared/styles';
+import { IdentifierSmall, StatusContainer } from '../../shared/styles';
 
 interface Props {
   invoices: Array<Invoice>;
@@ -14,10 +14,10 @@ const InvoicesList = ({ invoices }: Props): JSX.Element => (
     {invoices.map((invoice) => (
       <Link to={`details/${invoice.id}`} style={{ textDecoration: 'none' }}>
         <Item key={invoice.id}>
-          <Identifier>
+          <IdentifierSmall>
             <span>#</span>
             {invoice.id}
-          </Identifier>
+          </IdentifierSmall>
           <Date>Due 19 Aug 2021</Date>
           <ClientName>{invoice.clientName}</ClientName>
           <Total>R${invoice.total}</Total>

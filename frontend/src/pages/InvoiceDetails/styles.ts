@@ -43,3 +43,34 @@ export const ButtonsContainer = styled.div`
   width: 100%;
   gap: 8px;
 `;
+
+export const Details = styled.div`
+  margin-top: 24px;
+  background: #1e2139;
+  box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
+  border-radius: 8px;
+  background-color: ${({ theme }) => theme.color2};
+  padding: 48px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+
+    .description-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+`;
+
+export const GridDetails = styled.div`
+  display: grid;
+  grid-template-columns: auto auto auto;
+  row-gap: 8px;
+
+  div:nth-child(4) {
+    display: flex;
+    align-items: flex-end;
+  }
+`;

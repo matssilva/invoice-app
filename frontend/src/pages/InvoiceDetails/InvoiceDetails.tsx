@@ -1,10 +1,24 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Button, Container, StatusContainer } from '../../shared/styles';
-import { ActionsContainer, ButtonsContainer, Header } from './styles';
+import {
+  Button,
+  Container,
+  IdentifierLarge,
+  LabelMedium,
+  StatusContainer,
+} from '../../shared/styles';
+import {
+  ActionsContainer,
+  ButtonsContainer,
+  Details,
+  GridDetails,
+  Header,
+} from './styles';
 import IconArrowLeft from '../../assets/icon-arrow-left.svg?component';
 import { useAppSelector } from '../../storeHooks';
 import { getInvoices } from '../../slices/invoices';
+import AddressComponent from '../../components/Address/Address';
+import ValueView from '../../components/ValueView/ValueView';
 
 const InvoiceDetails: React.FC = () => {
   const { invoiceId } = useParams();
@@ -30,6 +44,38 @@ const InvoiceDetails: React.FC = () => {
           <Button className="asPaid">Mark as Paid</Button>
         </ButtonsContainer>
       </ActionsContainer>
+      <Details>
+        <div className="header">
+          <div className="description-container">
+            <IdentifierLarge>
+              <span>#</span>
+              {invoice?.id}
+            </IdentifierLarge>
+            <LabelMedium>{invoice?.description}</LabelMedium>
+          </div>
+          <AddressComponent address={invoice?.senderAddress} />
+        </div>
+        <GridDetails>
+          <div>
+            <ValueView label="Invoice Date" value="21 Aug 2021" />
+          </div>
+          <div>
+            <ValueView label="Bill To" value={invoice?.clientName} />
+          </div>
+          <div>
+            <ValueView label="Sent to" value={invoice?.clientEmail} />
+          </div>
+          <div>
+            <ValueView label="Payment Due" value="21 Aug 2021" />
+          </div>
+          <div>
+            <AddressComponent
+              address={invoice?.clientAddress}
+              alignItem="flex-start"
+            />
+          </div>
+        </GridDetails>
+      </Details>
     </Container>
   );
 };

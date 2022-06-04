@@ -81,3 +81,60 @@ export const Button = styled.button`
     cursor: pointer;
   }
 `;
+
+const Identifier = styled.div`
+  font-family: 'Spartan Bold';
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  color: ${({ theme }) => theme.color6};
+
+  span {
+    color: #7e88c3;
+  }
+`;
+
+export const IdentifierSmall = styled(Identifier)`
+  font-size: 12px;
+`;
+
+export const IdentifierLarge = styled(Identifier)`
+  font-size: 16px;
+`;
+
+const Label = styled.label`
+  font-family: 'Spartan';
+  font-style: normal;
+  color: ${({ theme }) => theme.color9};
+`;
+
+export const LabelSmall = styled(Label)`
+  font-size: 11px;
+  line-height: 18px;
+  text-align: right;
+  letter-spacing: -0.229167px;
+  font-weight: 500;
+`;
+
+export const LabelMedium = styled(Label)`
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+`;
+
+export const LabelBig = styled(Label)`
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  color: #ffffff;
+`;
+
+export const LabelLarge = styled(Label)`
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: -0.3125px;
+  color: #ffffff;
+`;
