@@ -20,6 +20,7 @@ import { getInvoices } from '../../slices/invoices';
 import AddressComponent from '../../components/Address/Address';
 import ValueView from '../../components/ValueView/ValueView';
 import InvoiceItemsTable from '../../components/InvoiceItemsTable/InvoiceItemsTable';
+import { formatDate } from '../../shared/utils';
 
 const InvoiceDetails: React.FC = () => {
   const { invoiceId } = useParams();
@@ -61,7 +62,10 @@ const InvoiceDetails: React.FC = () => {
         </div>
         <GridDetails>
           <div>
-            <ValueView label="Invoice Date" value="21 Aug 2021" />
+            <ValueView
+              label="Invoice Date"
+              value={formatDate(invoice?.createdAt)}
+            />
           </div>
           <div>
             <ValueView label="Bill To" value={invoice?.clientName} />
@@ -70,7 +74,10 @@ const InvoiceDetails: React.FC = () => {
             <ValueView label="Sent to" value={invoice?.clientEmail} />
           </div>
           <div>
-            <ValueView label="Payment Due" value="21 Aug 2021" />
+            <ValueView
+              label="Payment Due"
+              value={formatDate(invoice?.paymentDue)}
+            />
           </div>
           <div>
             <AddressComponent
