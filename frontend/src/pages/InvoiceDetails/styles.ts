@@ -68,7 +68,7 @@ export const GridDetails = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;
   row-gap: 8px;
-
+  margin-top: 21px;
   div:nth-child(4) {
     display: flex;
     align-items: flex-end;

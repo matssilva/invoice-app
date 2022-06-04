@@ -10,7 +10,7 @@ export const Container = styled.div`
   width: min(100% - 2rem, 730px);
   color: ${({ theme }) => theme.color6};
   font-family: 'Spartan Medium';
-  padding-top: 72px;
+  padding-top: 59px;
 `;
 
 export const StatusContainer = styled.div<{ status: string }>`
@@ -115,11 +115,12 @@ export const LabelSmall = styled(Label)`
   font-weight: 500;
 `;
 
-export const LabelMedium = styled(Label)`
-  font-weight: 500;
+export const LabelMedium = styled(Label)<{ fWeight?: string; color?: string }>`
+  font-weight: ${({ fWeight }) => fWeight ?? '500'};
   font-size: 12px;
   line-height: 15px;
   letter-spacing: -0.25px;
+  color: ${({ theme, color }) => color ?? theme.color9};
 `;
 
 export const LabelBig = styled(Label)`

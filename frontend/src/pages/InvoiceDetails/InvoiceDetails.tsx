@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import {
   Button,
   Container,
@@ -19,6 +19,7 @@ import { useAppSelector } from '../../storeHooks';
 import { getInvoices } from '../../slices/invoices';
 import AddressComponent from '../../components/Address/Address';
 import ValueView from '../../components/ValueView/ValueView';
+import InvoiceItemsTable from '../../components/InvoiceItemsTable/InvoiceItemsTable';
 
 const InvoiceDetails: React.FC = () => {
   const { invoiceId } = useParams();
@@ -28,10 +29,13 @@ const InvoiceDetails: React.FC = () => {
 
   return (
     <Container>
-      <Header>
-        <IconArrowLeft />
-        <span>Go back</span>
-      </Header>
+      <Link to="/">
+        <Header>
+          <IconArrowLeft />
+          <span>Go back</span>
+        </Header>
+      </Link>
+
       <ActionsContainer>
         <span>Status</span>
         <StatusContainer status={invoice?.status}>
@@ -75,6 +79,10 @@ const InvoiceDetails: React.FC = () => {
             />
           </div>
         </GridDetails>
+        <InvoiceItemsTable
+          items={invoice?.items || []}
+          total={invoice?.total || 0}
+        />
       </Details>
     </Container>
   );
