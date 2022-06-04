@@ -6,20 +6,21 @@ const lightTheme = {
   color5: '#4B6A9B',
   color6: '#2B3442',
   headerText: '#222731',
-  fontFamily: 'Space Mono'
-}
+  fontFamily: 'Space Mono',
+};
 
 const darkTheme = {
   color1: '#141625',
   headerText: '#fff',
   color3: '#DFE3FA',
   color4: '#0079ff',
-  color6: '#fff',
+  color6: '#FFFFFF',
   color2: '#1E2139',
   color5: '#9277FF',
   color7: '#252945',
   color8: '#7C5DFA',
-  fontFamily: 'Space Mono'
-}
+  color9: '#DFE3FA',
+  fontFamily: 'Space Mono',
+};
 
 export { lightTheme, darkTheme };

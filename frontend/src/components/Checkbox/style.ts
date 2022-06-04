@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const CheckboxContainer = styled.span<{ isChecked: Boolean }>`
   display: inline-block;
@@ -25,10 +25,10 @@ export const Label = styled.label`
 
   .labelText {
     font-family: 'Spartan';
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 15px;
-  letter-spacing: -0.25px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 15px;
+    letter-spacing: -0.25px;
   }
 
   :hover {
@@ -48,5 +48,3 @@ export const Input = styled.input`
   white-space: nowrap;
   width: 1px;
 `;
-
-

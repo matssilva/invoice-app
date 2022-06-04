@@ -1,6 +1,6 @@
 export interface InvoiceItem {
-  name: String;
+  name: string;
   quantity: number;
-  price: number;
-  total: number;
+  price: string;
+  total: string;
 }

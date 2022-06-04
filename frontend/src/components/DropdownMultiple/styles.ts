@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -10,7 +10,7 @@ export const DropdownContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   :hover {
     cursor: pointer;
   }
@@ -18,7 +18,7 @@ export const DropdownContainer = styled.div`
   gap: 16px;
 
   > .title {
-    font-family: "Spartan Bold";
+    font-family: 'Spartan Bold';
     font-style: normal;
     font-weight: 700;
     font-size: 12px;

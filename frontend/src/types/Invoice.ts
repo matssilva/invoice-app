@@ -1,15 +1,15 @@
-import { Address } from "./Address";
-import { InvoiceItem } from "./InvoiceItem";
+import { Address } from './Address';
+import { InvoiceItem } from './InvoiceItem';
 
 export interface Invoice {
-  id: String;
-  createdAt: String;
-  paymentDue: String;
-  description: String;
+  id: string;
+  createdAt: string;
+  paymentDue: string;
+  description: string;
   paymentTerms: number;
-  clientName: String;
-  clientEmail: String;
-  status: String;
+  clientName: string;
+  clientEmail: string;
+  status: string;
   senderAddress: Address;
   clientAddress: Address;
   items: Array<InvoiceItem>;

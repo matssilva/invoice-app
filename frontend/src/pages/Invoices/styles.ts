@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   width: min(100% - 2rem, 730px);
   color: ${({ theme }) => theme.color6};
-  font-family: "Spartan Medium";
+  font-family: 'Spartan Medium';
   padding-top: 72px;
 
   button {
@@ -14,7 +14,7 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     gap: 16px;
-    font-family: "Spartan Bold";
+    font-family: 'Spartan Bold';
     font-style: normal;
     font-weight: 700;
     font-size: 12px;
@@ -46,12 +46,12 @@ export const TitleContainer = styled.div`
   margin-right: auto;
 
   h1 {
-    font-family: "Spartan Bold";
+    font-family: 'Spartan Bold';
     font-size: 32px;
   }
 
   sub {
-    font-family: "Spartan";
+    font-family: 'Spartan';
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
