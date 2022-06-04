@@ -15,6 +15,12 @@ export const Item = styled.li`
   box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
   background-color: ${({ theme }) => theme.color2};
   padding: 16px 24px 16px 32px;
+
+  :hover {
+    cursor: pointer;
+    border: 1px solid ${({ theme }) => theme.color8};
+    padding: 15px 23px 15px 31px;
+  }
 `;
 
 const Text = styled.div`
@@ -53,12 +59,6 @@ export const Total = styled.div`
   letter-spacing: -0.8px;
   color: ${({ theme }) => theme.color6};
 `;
-
-const defineStatusColor = (status: string, opacity: string) => {
-  if (status === 'pending') return `rgba(255, 143, 0, ${opacity})`;
-  if (status === 'paid') return `rgba(51, 214, 159, ${opacity})`;
-  return `rgba(223, 227, 250, ${opacity})`;
-};
 
 export const StatusContainer = styled.div<{ status: string }>`
   border-radius: 6px;

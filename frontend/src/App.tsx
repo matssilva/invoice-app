@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import Sidebar from './components/Sidebar/Sidebar';
 import useTheme from './hooks/useTheme';
+import InvoiceDetails from './pages/InvoiceDetails/InvoiceDetails';
 import Invoices from './pages/Invoices/Invoices';
 import { Main } from './styles/style';
 import { lightTheme, darkTheme } from './theme/themes';
@@ -24,6 +25,7 @@ const App = () => {
         >
           <Routes>
             <Route path="/" element={<Invoices />} />
+            <Route path="/details/:invoiceId" element={<InvoiceDetails />} />
           </Routes>
         </div>
       </Main>

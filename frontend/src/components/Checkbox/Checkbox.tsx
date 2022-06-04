@@ -21,7 +21,7 @@ const Checkbox = ({
       onClick={(e) => e.stopPropagation()}
       onChange={(e) => {
         e.stopPropagation();
-        onCheck(value);
+        onCheck(isChecked ? '' : value);
       }}
     />
     <CheckboxContainer isChecked={isChecked} aria-hidden="true">
