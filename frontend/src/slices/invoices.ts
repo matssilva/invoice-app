@@ -20,6 +20,14 @@ export const getInvoicesAsync = createAsyncThunk('invoices/get', async () => {
   return response.data as Array<Invoice>;
 });
 
+export const deleteInvoiceAsync = createAsyncThunk(
+  'invoices/delete',
+  async (invoiceId: string) => {
+    const response = await api.deleteInvoiceAsync(invoiceId);
+    return response.data as string;
+  }
+);
+
 const invoicesSlice = createSlice({
   name: 'invoices',
   initialState,
@@ -30,6 +38,13 @@ const invoicesSlice = createSlice({
       (state, action: PayloadAction<[] | Array<Invoice>>) => {
         state.status = 'succeeded';
         state.data = action.payload;
+      }
+    );
+    builder.addCase(
+      deleteInvoiceAsync.fulfilled,
+      (state, action: PayloadAction<string>) => {
+        state.status = 'succeeded';
+        state.data = state.data.filter((item) => item.id !== action.payload);
       }
     );
   },

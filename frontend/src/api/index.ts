@@ -1,13 +1,13 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { Invoice } from '../types/Invoice';
 
 const createAxiosConfig = (): AxiosRequestConfig => ({
   headers: {
-    "Content-Type": "aplication/json",
+    'Content-Type': 'aplication/json',
   },
 });
 
-const baseUlr = "https://localhost:44381/api";
+const baseUlr = 'https://localhost:44381/api';
 
 const instance = axios.create({
   baseURL: baseUlr,
@@ -48,15 +48,20 @@ const instance = axios.create({
 //   return responseWithDelay;
 // }
 
+async function deleteInvoiceAsync(invoiceId: string): Promise<AxiosResponse> {
+  const response = await instance.delete(`/Invoice?id=${invoiceId}`);
+  return response;
+}
+
 async function getInvoicesAsync<Invoice>(): Promise<AxiosResponse<Invoice>> {
   const [responseWithDelay] = await Promise.all([
-    instance.get("/Invoice", createAxiosConfig()),
+    instance.get('/Invoice', createAxiosConfig()),
     new Promise((resolve) => setTimeout(resolve, 500)),
   ]);
 
   return responseWithDelay;
 }
 
-const api = { getInvoicesAsync };
+const api = { getInvoicesAsync, deleteInvoiceAsync };
 
 export default api;

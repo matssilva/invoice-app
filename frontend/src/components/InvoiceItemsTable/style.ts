@@ -27,15 +27,4 @@ export const TableFooter = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  .total {
-    font-family: 'Spartan';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 32px;
-    text-align: right;
-    letter-spacing: -0.5px;
-    color: ${({ theme }) => theme.color6};
-  }
 `;

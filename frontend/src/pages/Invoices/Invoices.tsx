@@ -4,7 +4,6 @@ import DropdownMultiple, {
 } from '../../components/DropdownMultiple/DropdownMultiple';
 import { Header, TitleContainer, Button } from './styles';
 import IconPlus from '../../assets/icon-plus.svg?component';
-import api from '../../api';
 import { useAppDispatch, useAppSelector } from '../../storeHooks';
 import { getInvoices, getInvoicesAsync } from '../../slices/invoices';
 import InvoicesList from '../../components/InvoicesList/InvoicesList';

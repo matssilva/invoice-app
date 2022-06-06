@@ -31,7 +31,7 @@ namespace InvoiceAppWebApi.Controllers
         public async Task<IActionResult> Delete(string id)
         {
             await _invoiceBusiness.DeleteAsync(id);
-            return Ok();
+            return Ok(id);
         }
 
         [HttpPut]

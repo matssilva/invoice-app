@@ -36,14 +36,6 @@ export const ActionsContainer = styled.div`
   }
 `;
 
-export const ButtonsContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100%;
-  gap: 8px;
-`;
-
 export const Details = styled.div`
   margin-top: 24px;
   background: #1e2139;

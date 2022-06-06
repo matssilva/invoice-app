@@ -1,32 +1,39 @@
-import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import {
   Button,
   Container,
   IdentifierLarge,
   LabelMedium,
   StatusContainer,
-} from '../../shared/styles';
-import {
-  ActionsContainer,
   ButtonsContainer,
-  Details,
-  GridDetails,
-  Header,
-} from './styles';
+} from '../../shared/styles';
+import { ActionsContainer, Details, GridDetails, Header } from './styles';
 import IconArrowLeft from '../../assets/icon-arrow-left.svg?component';
-import { useAppSelector } from '../../storeHooks';
-import { getInvoices } from '../../slices/invoices';
+import { useAppDispatch, useAppSelector } from '../../storeHooks';
+import { deleteInvoiceAsync, getInvoices } from '../../slices/invoices';
 import AddressComponent from '../../components/Address/Address';
 import ValueView from '../../components/ValueView/ValueView';
 import InvoiceItemsTable from '../../components/InvoiceItemsTable/InvoiceItemsTable';
 import { formatDate } from '../../shared/utils';
+import DeleteDialog from '../../components/Dialog/Dialog';
 
 const InvoiceDetails: React.FC = () => {
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  const navigate = useNavigate();
   const { invoiceId } = useParams();
+  const dispatch = useAppDispatch();
+
   const invoices = useAppSelector(getInvoices);
 
   const invoice = invoices.data.find((item) => item.id === invoiceId);
+
+  const onDelete = () => {
+    if (!invoiceId) return;
+    dispatch(deleteInvoiceAsync(invoiceId));
+    navigate('/');
+  };
 
   return (
     <Container>
@@ -44,8 +51,10 @@ const InvoiceDetails: React.FC = () => {
           <div className="statusText">{invoice?.status}</div>
         </StatusContainer>
         <ButtonsContainer>
-          <Button className="edit">Edit</Button>
-          <Button className="delete">Delete</Button>
+          <Button className="normal">Edit</Button>
+          <Button className="delete" onClick={() => setIsDeleting(true)}>
+            Delete
+          </Button>
           <Button className="asPaid">Mark as Paid</Button>
         </ButtonsContainer>
       </ActionsContainer>
@@ -91,6 +100,12 @@ const InvoiceDetails: React.FC = () => {
           total={invoice?.total || 0}
         />
       </Details>
+      <DeleteDialog
+        showDialog={isDeleting}
+        identifier={invoice?.id}
+        cancelCallback={() => setIsDeleting(false)}
+        deleteCallback={() => onDelete(invoice?.id)}
+      />
     </Container>
   );
 };

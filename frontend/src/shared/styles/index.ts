@@ -42,6 +42,14 @@ export const StatusContainer = styled.div<{ status: string }>`
   }
 `;
 
+export const ButtonsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 8px;
+`;
+
 export const Button = styled.button`
   padding: 17px 24px;
   font-family: 'Spartan';
@@ -53,7 +61,7 @@ export const Button = styled.button`
   border: none;
   color: #fff;
 
-  &.edit {
+  &.normal {
     background-color: ${({ theme }) => theme.color7};
     color: #dfe3fa;
 
@@ -129,7 +137,7 @@ export const LabelBig = styled(Label)`
   font-size: 12px;
   line-height: 15px;
   letter-spacing: -0.25px;
-  color: #ffffff;
+  color: ${({ theme }) => theme.color6};
 `;
 
 export const LabelLarge = styled(Label)`
@@ -137,5 +145,14 @@ export const LabelLarge = styled(Label)`
   font-size: 15px;
   line-height: 20px;
   letter-spacing: -0.3125px;
-  color: #ffffff;
+  color: ${({ theme }) => theme.color6};
+`;
+
+export const LabelXLarge = styled(Label)`
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: right;
+  letter-spacing: -0.5px;
+  color: ${({ theme }) => theme.color6};
 `;

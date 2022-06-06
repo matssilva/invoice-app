@@ -1,5 +1,10 @@
 import React from 'react';
-import { LabelBig, LabelMedium, LabelSmall } from '../../shared/styles';
+import {
+  LabelBig,
+  LabelMedium,
+  LabelSmall,
+  LabelXLarge,
+} from '../../shared/styles';
 import { InvoiceItem } from '../../types';
 import { Table, TableFooter } from './style';
 
@@ -50,7 +55,7 @@ const InvoiceItemsTable: React.FC<Props> = ({ items, total }) => (
     </Table>
     <TableFooter>
       <LabelSmall>Amout due</LabelSmall>
-      <div className="total">R$ {total}</div>
+      <LabelXLarge>R$ {total}</LabelXLarge>
     </TableFooter>
   </>
 );
