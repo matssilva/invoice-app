@@ -27,12 +27,14 @@ const DeleteDialog: React.FC<Props> = ({
         as={motion.div}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
       >
         <Modal
           as={motion.div}
           initial={{ scale: 0 }}
           animate={{ scale: 1, y: 0 }}
           transition={{ stiffness: 120, type: 'spring' }}
+          exit={{ scale: 0 }}
         >
           <LabelXLarge>Confirm Deletion</LabelXLarge>
           <LabelMedium>
