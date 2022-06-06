@@ -22,7 +22,7 @@ const Invoices = (): JSX.Element => {
   const [filterStatus, setFilterStatus] = useState<String>('');
 
   useEffect(() => {
-    dispatch(getInvoicesAsync());
+    if (invoices.status !== 'succeeded') dispatch(getInvoicesAsync());
   }, []);
 
   const filtered = invoices.data.filter(
