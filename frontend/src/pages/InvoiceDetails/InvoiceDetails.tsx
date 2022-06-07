@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import {
   Button,
   Container,
@@ -20,6 +20,7 @@ import DeleteDialog from '../../components/Dialog/Dialog';
 
 const InvoiceDetails: React.FC = () => {
   const [isDeleting, setIsDeleting] = useState(false);
+  const location = useLocation();
 
   const navigate = useNavigate();
   const { invoiceId } = useParams();
@@ -51,7 +52,9 @@ const InvoiceDetails: React.FC = () => {
           <div className="statusText">{invoice?.status}</div>
         </StatusContainer>
         <ButtonsContainer>
-          <Button className="normal">Edit</Button>
+          <Link to="/create" state={{ backgroundLocation: location }}>
+            <Button className="normal">Edit</Button>
+          </Link>
           <Button className="delete" onClick={() => setIsDeleting(true)}>
             Delete
           </Button>
