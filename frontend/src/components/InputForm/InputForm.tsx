@@ -15,7 +15,7 @@ const InputForm: React.FC<Props> = ({ id, label, registerProps, error }) => (
       <Label htmlFor={id}>{label}</Label>
       {error && <span>{error}</span>}
     </div>
-    <Input type="text" {...registerProps} />
+    <Input type="text" id={id} {...registerProps} />
   </InputGroup>
 );
 
