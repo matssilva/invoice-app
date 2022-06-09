@@ -78,6 +78,13 @@ export const Button = styled.button`
     }
   }
 
+  &.submit {
+    background-color: #7c5dfa;
+    :hover {
+      background-color: #9277ff;
+    }
+  }
+
   &.asPaid {
     background-color: #7c5dfa;
     :hover {

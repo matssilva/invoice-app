@@ -7,7 +7,14 @@ export const Form = styled.form`
   gap: 24px;
 `;
 
-export const SectionTitle = styled.div`
+export const Section = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+`;
+
+export const Title = styled.div`
   font-family: 'Spartan';
   font-style: normal;
   font-weight: 700;
