@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import DropdownMultiple, {
   Option,
 } from '../../components/DropdownMultiple/DropdownMultiple';
@@ -18,6 +19,7 @@ const options: Array<Option> = [
 const Invoices = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const invoices = useAppSelector(getInvoices);
+  const location = useLocation();
 
   const [filterStatus, setFilterStatus] = useState<String>('');
 
@@ -41,12 +43,14 @@ const Invoices = (): JSX.Element => {
           selected={filterStatus}
           setSelected={setFilterStatus}
         />
-        <Button type="button">
-          <div>
-            <IconPlus />
-          </div>
-          New Invoice
-        </Button>
+        <Link to="/create" state={{ backgroundLocation: location }}>
+          <Button type="button">
+            <div>
+              <IconPlus />
+            </div>
+            New Invoice
+          </Button>
+        </Link>
       </Header>
       <InvoicesList invoices={filtered} />
     </Container>

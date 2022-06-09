@@ -15,6 +15,7 @@ export const Button = styled.button`
   line-height: 15px;
   letter-spacing: -0.25px;
   margin-left: 40px;
+  cursor: pointer;
 
   div {
     height: 32px;

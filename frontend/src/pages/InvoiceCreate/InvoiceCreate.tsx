@@ -17,6 +17,7 @@ const InvoiceCreate: React.FC = () => (
         initial={{ x: '-100vw' }}
         animate={{ x: 0 }}
         transition={{ type: 'tween', ease: 'easeInOut', duration: 1 }}
+        exit={{ x: '-100vw' }}
       >
         <LabelXLarge>New invoice</LabelXLarge>
         <InvoiceForm />

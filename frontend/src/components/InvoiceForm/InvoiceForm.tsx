@@ -1,11 +1,10 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { Button, ButtonsContainer } from '../../shared/styles';
 import { Invoice } from '../../types';
 import InputForm from '../InputForm/InputForm';
 import { Form, Section, Title } from './style';
-
-// import { Container } from './styles';
 
 const InvoiceForm: React.FC = () => {
   const {
@@ -13,6 +12,8 @@ const InvoiceForm: React.FC = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<Invoice>();
+
+  const navigate = useNavigate();
 
   const onSubmit = handleSubmit((data) => {
     console.log(data);
@@ -141,7 +142,9 @@ const InvoiceForm: React.FC = () => {
         error={errors.description?.message}
       />
       <ButtonsContainer>
-        <Button className="normal">Cancel</Button>
+        <Button className="normal" type="button" onClick={() => navigate(-1)}>
+          Cancel
+        </Button>
         <Button className="submit" type="submit">
           Save Changes
         </Button>

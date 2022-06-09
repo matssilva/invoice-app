@@ -14,8 +14,6 @@ const App = () => {
   const location = useLocation();
   const state = location.state as { backgroundLocation?: Location };
 
-  console.log(location);
-
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <Main>
